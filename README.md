@@ -1,5 +1,7 @@
 # Claude Arena
 
+[![tests](https://github.com/semx/claude-arena/actions/workflows/tests.yml/badge.svg)](https://github.com/semx/claude-arena/actions/workflows/tests.yml)
+
 Cost-aware model routing and orchestration for developer workflows.
 
 Claude Arena classifies incoming work, estimates token spend, and selects an

@@ -49,4 +49,5 @@ def load_router_config(path: str | Path | None = None) -> RouterConfig:
 
 def _read_json(path: str | Path) -> dict[str, Any]:
     with Path(path).open("r", encoding="utf-8") as handle:
-        return json.load(handle)
+        data: dict[str, Any] = json.load(handle)
+    return data

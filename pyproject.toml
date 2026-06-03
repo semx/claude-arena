@@ -19,3 +19,6 @@ arena = "arena.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["arena*"]
+
+[tool.mypy]
+strict = true

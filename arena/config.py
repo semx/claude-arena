@@ -15,8 +15,12 @@ def load_profiles(path: str | Path | None = None) -> tuple[ModelProfile, ...]:
         return DEFAULT_MODEL_PROFILES
 
     data = _read_json(path)
+    items = data.get("models")
+    if not items:
+        return DEFAULT_MODEL_PROFILES
+
     profiles = []
-    for item in data.get("models", []):
+    for item in items:
         profiles.append(
             ModelProfile(
                 name=item["name"],
@@ -31,14 +35,15 @@ def load_profiles(path: str | Path | None = None) -> tuple[ModelProfile, ...]:
 
 
 def load_router_config(path: str | Path | None = None) -> RouterConfig:
+    defaults = RouterConfig()
     if path is None:
-        return RouterConfig()
+        return defaults
 
     data = _read_json(path).get("router", {})
     return RouterConfig(
-        max_cost_usd=float(data.get("max_cost_usd", RouterConfig.max_cost_usd)),
-        prefer_capability=bool(data.get("prefer_capability", RouterConfig.prefer_capability)),
-        allow_downgrade=bool(data.get("allow_downgrade", RouterConfig.allow_downgrade)),
+        max_cost_usd=float(data.get("max_cost_usd", defaults.max_cost_usd)),
+        prefer_capability=bool(data.get("prefer_capability", defaults.prefer_capability)),
+        allow_downgrade=bool(data.get("allow_downgrade", defaults.allow_downgrade)),
     )
 
 

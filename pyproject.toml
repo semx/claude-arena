@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-arena"
+version = "0.1.0"
+description = "Cost-aware model routing and orchestration for developer workflows"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Sergey Sannikov" }
+]
+license = "MIT"
+dependencies = []
+
+[project.scripts]
+arena = "arena.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["arena*"]

@@ -1,0 +1,33 @@
+{
+  "router": {
+    "max_cost_usd": 0.08,
+    "prefer_capability": true,
+    "allow_downgrade": true
+  },
+  "models": [
+    {
+      "name": "claude-3-haiku",
+      "tier": "haiku",
+      "input_cost_per_mtok": 0.25,
+      "output_cost_per_mtok": 1.25,
+      "max_context_tokens": 200000,
+      "strengths": ["classification", "simple edits", "summaries"]
+    },
+    {
+      "name": "claude-3-sonnet",
+      "tier": "sonnet",
+      "input_cost_per_mtok": 3.0,
+      "output_cost_per_mtok": 15.0,
+      "max_context_tokens": 200000,
+      "strengths": ["code review", "debugging", "analysis"]
+    },
+    {
+      "name": "claude-3-opus",
+      "tier": "opus",
+      "input_cost_per_mtok": 15.0,
+      "output_cost_per_mtok": 75.0,
+      "max_context_tokens": 200000,
+      "strengths": ["architecture", "incident analysis", "complex reasoning"]
+    }
+  ]
+}

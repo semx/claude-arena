@@ -101,6 +101,11 @@ class PromptClassifier:
         score += 12 if requires_tools else 0
         score += sum(6 for term in COMPLEXITY_TERMS if term in normalized)
 
+        if "incident" in domains and requires_tools:
+            score += 10
+        if "production" in risk_flags and "infrastructure" in domains:
+            score += 6
+
         if "explain" in normalized or "summarize" in normalized:
             score -= 8
         if "simple" in normalized or "quick" in normalized:
